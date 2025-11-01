@@ -18,14 +18,20 @@ function playRound() {
 
     cell.forEach(cell => {
         cell.addEventListener("click", (e) => {
-            if (e.target.textContent === "") {
+            const cellTarget = e.target;
+            
+            if (cellTarget.textContent === "") {
                 // display move
-                e.target.textContent = currentPlayer.marker;
+                cellTarget.textContent = currentPlayer.marker;
                 // change turn 
                 currentPlayer === player1 ? currentPlayer = player2 : currentPlayer = player1;
             } else {
-                alert("Select an empty cell!");
-            }
+                // if clicked on filled cell
+                cellTarget.style.backgroundColor = "orangeRed";
+                setTimeout(() => {
+                    cellTarget.style.backgroundColor = "";
+                }, 500);
+            };
         });
     });
 
