@@ -26,7 +26,7 @@ const gameLogic = (function () {
         // change player's turn 
         if (currentPlayer === player1) {
             currentPlayer = player2;
-        } else (currentPlayer === player2) {
+        } else {
             currentPlayer = player1;
         };
     }
@@ -35,3 +35,5 @@ const gameLogic = (function () {
 
     // play again or reset 
 })();
+
+
