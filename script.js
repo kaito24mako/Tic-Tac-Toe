@@ -14,13 +14,16 @@ const gameLogic = (function () {
         gameboard: ["", "", "", "", "", "", "", "", ""]
     };
 
-    // select player to go first
-    //! if previous winner won, then they go first
-    //! else other player goes first
-    //! else if no winner, choose at random 
+    // player's turn 
+    // check whose turn it is 
 
-    // declare winner or draw 
+    // check for win/draw conditions after each move 
     for (i = 0; i < gameboard.length; i++) {
 
     }
-})
+
+    // decide when the game ends 
+
+    // play again or reset 
+
+});
