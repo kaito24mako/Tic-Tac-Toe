@@ -75,14 +75,18 @@ h1 {
     background-color: rgba(169, 119, 187, 0.37);
 }
 
-/* ==== Status and Restart ==== */
+/* ==== Score ==== */
 
 #score {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
     
     padding: 2em;
 }
+
+/* ==== Next Round ==== */
 
 #nextRound {
     display: flex;

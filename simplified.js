@@ -2,13 +2,14 @@
 
 /* Create players */
 
-function Player(name, marker) {
+function Player(name, marker, score) {
     this.name = name;
     this.marker = marker;
+    this.score = score;
 };
 
-const player1 = new Player("Kaito", "X");
-const player2 = new Player("Bey", "O");
+const player1 = new Player("Kaito", "X", 0);
+const player2 = new Player("Bey", "O", 0);
 let currentPlayer = player1;
 
 /* Round logic */
@@ -16,6 +17,8 @@ let currentPlayer = player1;
 function playRound() {
     const cell = document.querySelectorAll(".cell");
     const nextRoundButton = document.querySelector("#nextRound");
+    const player1Score = document.querySelector("#player1Score");
+    const player2Score = document.querySelector("#player2Score");
     const gameboard = Array.from(cell);
     let gameOver = false; 
 
@@ -47,6 +50,14 @@ function playRound() {
                 // check for win 
                 if (getWin(currentPlayer.marker)) {
                     console.log(`${currentPlayer.name} won the round!`);
+
+                    // display new scores
+                    currentPlayer.score++;
+                    currentPlayer === player1 ? 
+                        player1Score.textContent = `${currentPlayer.name}: ${currentPlayer.score} point`
+                        : player2Score.textContent = `${currentPlayer.name}: ${currentPlayer.score} point`;
+                    
+                    // stop round 
                     gameOver = true;
                 };
 
@@ -76,5 +87,9 @@ function playRound() {
 playRound();
 
 
+// ADD:
+// DRAW CONDITION 
+// PLAY BUTTON 
+// INPUT NAMES
 
 
