@@ -15,7 +15,7 @@ let currentPlayer = player1;
 
 function playRound() {
     const cell = document.querySelectorAll(".cell");
-    const restartButton = document.querySelector("#restart");
+    const nextRoundButton = document.querySelector("#nextRound");
     const gameboard = Array.from(cell);
     let gameOver = false; 
 
@@ -63,9 +63,9 @@ function playRound() {
         });
     });
 
-    // Restart button 
+    // Next Round button 
     cell.forEach(cell => {
-        restartButton.addEventListener("click", () => {
+        nextRoundButton.addEventListener("click", () => {
             gameOver = false;
             cell.textContent = "";
             currentPlayer = player1;
