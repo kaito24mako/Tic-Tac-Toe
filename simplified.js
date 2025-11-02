@@ -16,11 +16,11 @@ let currentPlayer = player1;
 
 function playRound() {
     const cell = document.querySelectorAll(".cell");
-    const nextRoundButton = document.querySelector("#nextRound");
+    const playBtn = document.querySelector("#nextRound");
     const player1Score = document.querySelector("#player1Score");
     const player2Score = document.querySelector("#player2Score");
     const gameboard = Array.from(cell);
-    let gameOver = false; 
+    let stopGame = true; 
 
     // Win condition 
     function getWin(marker) {
@@ -39,7 +39,7 @@ function playRound() {
     cell.forEach(cell => {
         cell.addEventListener("click", (e) => {
             const cellTarget = e.target;
-            if (gameOver === true) return;
+            if (stopGame === true) return;
 
             // check for empty cell 
             if (cellTarget.textContent === "") {
@@ -58,7 +58,7 @@ function playRound() {
                         : player2Score.textContent = `${currentPlayer.name}: ${currentPlayer.score} point`;
                     
                     // stop round 
-                    gameOver = true;
+                    stopGame = true;
                 };
 
                 // change turn 
@@ -74,13 +74,26 @@ function playRound() {
         });
     });
 
-    // Next Round button 
+    // Play / Next round button 
     cell.forEach(cell => {
-        nextRoundButton.addEventListener("click", () => {
-            gameOver = false;
-            cell.textContent = "";
-            currentPlayer = player1;
+        let playBtnClicked = false;
+        playBtn.textContent = "Play";
+
+        // initial play button 
+        playBtn.addEventListener("click", () => {
+            stopGame = false; 
+            playBtnClicked = true;
+            playBtn.textContent = "Next Round";
         });
+
+        // following next round button 
+        if (playBtnClicked = true) {
+            playBtn.addEventListener("click", () => {
+                stopGame = false;
+                cell.textContent = "";
+                currentPlayer = player1;
+            });
+        };
     });
 };
 
