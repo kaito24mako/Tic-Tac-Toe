@@ -9,24 +9,47 @@ function Player(name, marker) {
 
 const player1 = new Player("Kaito", "X");
 const player2 = new Player("Bey", "O");
+let currentPlayer = player1;
 
 /* Round logic */
-let currentPlayer = player1;
 
 function playRound() {
     const cell = document.querySelectorAll(".cell");
+    const gameboard = Array.from(cell);
 
+    function getWin(marker) {
+        const wins = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],  // rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],  // columns
+            [0, 4, 8], [2, 4, 6] // diagonals
+        ];
+        // if any of these inner arrays has all the same marker, return true
+        return wins.some(combo => 
+            combo.every(i => gameboard[i].textContent === marker)
+        );
+    };
+
+    // Click handler...
     cell.forEach(cell => {
         cell.addEventListener("click", (e) => {
-            const cellTarget = e.target;
-            
+            const cellTarget = e.target;     
+
+            // check for empty cell 
             if (cellTarget.textContent === "") {
+
                 // display move
                 cellTarget.textContent = currentPlayer.marker;
+
+                // win condition
+                if (getWin(currentPlayer.marker)) {
+                    console.log(`${currentPlayer.name} won the round!`);
+                };
+
                 // change turn 
-                currentPlayer === player1 ? currentPlayer = player2 : currentPlayer = player1;
+                currentPlayer = currentPlayer === player1 ? player2 : player1;
+
+            // check for filled cell 
             } else {
-                // if clicked on filled cell
                 cellTarget.style.backgroundColor = "orangeRed";
                 setTimeout(() => {
                     cellTarget.style.backgroundColor = "";
@@ -34,7 +57,6 @@ function playRound() {
             };
         });
     });
-
 };
 
 playRound();
