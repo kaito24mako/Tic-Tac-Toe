@@ -8,6 +8,19 @@
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
+
+    <span id="scores">
+        <div class="player1-container">
+            <div id="player1Name"></div>
+            <div id="player1Score"></div>
+        </div>
+        <p>vs</p>
+        <div class="player2-container">
+            <div id="player2Name"></div>
+            <div id="player2Score"></div>
+        </div>
+    </span>
+
     <div id="gameboard">
         <div class="cell" id="one"></div>
         <div class="cell" id="two"></div>
@@ -19,10 +32,7 @@
         <div class="cell" id="eight"></div>
         <div class="cell" id="nine"></div>
     </div>
-    <span id="score">
-        <div id="player1Score"></div>
-        <div id="player2Score"></div>
-    </span>
+
     <button id="nextRound"></button>
 
     <script src="./simplified.js" defer></script>

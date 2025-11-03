@@ -10,7 +10,15 @@ function Player(name, marker, score) {
 
 const player1 = new Player("Kaito", "X", 0);
 const player2 = new Player("Bey", "O", 0);
-let currentPlayer = player1;
+
+const player1Name = document.querySelector("#player1Name");
+const player2Name = document.querySelector("#player2Name");
+
+function showPlayers() {
+    player1Name.textContent = player1.name;
+    player2Name.textContent = player2.name;
+};
+showPlayers();
 
 /* Round logic */
 
@@ -20,6 +28,7 @@ function playRound() {
     const player1Score = document.querySelector("#player1Score");
     const player2Score = document.querySelector("#player2Score");
     const gameboard = Array.from(cell);
+    let currentPlayer = player1;
     let stopGame = true; 
 
     // Win condition 
@@ -54,8 +63,8 @@ function playRound() {
                     // display new scores
                     currentPlayer.score++;
                     currentPlayer === player1 ? 
-                        player1Score.textContent = `${currentPlayer.name}: ${currentPlayer.score} point`
-                        : player2Score.textContent = `${currentPlayer.name}: ${currentPlayer.score} point`;
+                        player1Score.textContent = `${currentPlayer.score}`
+                        : player2Score.textContent = `${currentPlayer.score}`;
                     
                     // stop round 
                     stopGame = true;
@@ -74,7 +83,7 @@ function playRound() {
         });
     });
 
-    // Play / Next round button 
+    // Buttons
     cell.forEach(cell => {
         let playBtnClicked = false;
         playBtn.textContent = "Play";
@@ -101,8 +110,7 @@ playRound();
 
 
 // ADD:
-// DRAW CONDITION 
-// PLAY BUTTON 
 // INPUT NAMES
+// DRAW CONDITION 
 
 
