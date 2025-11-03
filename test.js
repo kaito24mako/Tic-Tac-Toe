@@ -1,38 +1,43 @@
 /* Create players */
 
-function Player(name, marker, score) {
-    this.name = name;
-    this.marker = marker;
-    this.score = score;
-};
-
-function addPlayer1(name, marker, score) {
-    const player1 = new Player(name, marker, score);
-};
-
-function addPlayer2(name, marker, score) {
-    const player2 = new Player(name, marker, score);
-};
-
-// const player1 = new Player("Kaito", "X", 0);
-// const player2 = new Player("Bey", "O", 0);
-
-/* Get player names */
-
 function getPlayerNames() {
     const dialog = document.querySelector("dialog");
     const form = document.querySelector(".name-form");
+
+    const player1Name = document.querySelector("#player1Name");
+    const player2Name = document.querySelector("#player2Name");
+
     const player1NameInput = form.elements["player1"];
     const player2NameInput = form.elements["player2"];
 
+    // player constructor
+    function Player(name, marker, score) {
+        this.name = name;
+        this.marker = marker;
+        this.score = score;
+    };
+
+    // create players
+    function addPlayer1(name, marker, score) {
+        player1 = new Player(name, marker, score);
+        player1Name.textContent = player1.name;
+    };
+
+    function addPlayer2(name, marker, score) {
+        player2 = new Player(name, marker, score);
+        player2Name.textContent = player2.name;
+    };
+
+    // show form on load
     window.addEventListener("load", () => {
         dialog.showModal();
     });
 
+    // submit players
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        console.log(addPlayer1(player1NameInput.value, "X", 0));
+        addPlayer1(player1NameInput.value, "X", 0);
         addPlayer2(player2NameInput.value, "O", 0);
 
         dialog.close();
@@ -40,17 +45,6 @@ function getPlayerNames() {
 };
 
 getPlayerNames();
-
-/* Show players on page load */
-
-function showPlayers() {
-    const player1Name = document.querySelector("#player1Name");
-    const player2Name = document.querySelector("#player2Name");
-    player1Name.textContent = player1.name;
-    player2Name.textContent = player2.name;
-};
-
-showPlayers();
 
 /* Round logic */
 
