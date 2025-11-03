@@ -1,6 +1,6 @@
 #  Tic-Tac-Toe
-A Tic Tac Toe game!
-It does NOT feature the factory functions and IIFEs that The Odin Project asked to be included.
+A fun little Tic Tac Toe game!
+<br>However, it does not feature the factory functions and IIFEs that The Odin Project asked to be included.
 
 ### ⚙️ Features
 - A 2-player Tic Tac Toe game, played on a webpage
