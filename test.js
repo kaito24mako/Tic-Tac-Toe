@@ -55,7 +55,7 @@ function playRound() {
     const player2Score = document.querySelector("#player2Score");
     const gameboard = Array.from(cell);
     let currentPlayer = player1;
-    let stopGame = true; 
+    let stopGame = false;
 
     // Show initial scores
     player1Score.textContent = 0;
@@ -115,24 +115,11 @@ function playRound() {
 
     // Buttons
     cell.forEach(cell => {
-        let playBtnClicked = false;
-        playBtn.textContent = "Play";
-
-        // initial play button 
         playBtn.addEventListener("click", () => {
-            stopGame = false; 
-            playBtnClicked = true;
-            playBtn.textContent = "Next Round";
+            stopGame = false;
+            cell.textContent = "";
+            currentPlayer = player1;
         });
-
-        // following next round button 
-        if (playBtnClicked = true) {
-            playBtn.addEventListener("click", () => {
-                stopGame = false;
-                cell.textContent = "";
-                currentPlayer = player1;
-            });
-        };
     });
 };
 
@@ -140,7 +127,6 @@ playRound();
 
 
 // ADD:
-// INPUT NAMES
 // DRAW CONDITION 
 // RESTART GAME BUTTON 
 

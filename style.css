@@ -131,7 +131,7 @@ body {
 }
 
 #form-title {
-    font-size: 5.5rem;
+    font-size: 5rem;
 }
 
 .players-wrapper {
@@ -200,4 +200,33 @@ dialog::backdrop {
         left: 50%;
         transform: translate(-50%, -60%);
     }  
+}
+
+@media (max-width: 1200px) {
+    #title-container,
+    #form-title {
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    #title-container,
+    #form-title {
+        font-size: 2.5rem;
+    }
+    .players-wrapper,
+    #score-container {
+        font-size: 0.9rem;
+    }
+    input,
+    button {
+        font-size: 0.6rem;
+    }
+    #gameboard-container {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+    }
+    .cell {
+        font-size: 3.5rem;
+    }
 }
