@@ -209,7 +209,7 @@ dialog::backdrop {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     #title-container,
     #form-title {
         font-size: 2.5rem;

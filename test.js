@@ -1,3 +1,7 @@
+/* Variables */
+let player1;
+let player2;
+
 /* Create players */
 
 function getPlayerNames() {
@@ -33,7 +37,7 @@ function getPlayerNames() {
         dialog.showModal();
     });
 
-    // submit players
+    // submit players and play game 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -41,6 +45,7 @@ function getPlayerNames() {
         addPlayer2(player2NameInput.value, "O", 0);
 
         dialog.close();
+        playRound();
     });
 };
 
@@ -51,6 +56,7 @@ getPlayerNames();
 function playRound() {
     const cell = document.querySelectorAll(".cell");
     const playBtn = document.querySelector("#playBtn");
+    const winnerMessageDiv = document.querySelector("#winnerMessage");
     const player1Score = document.querySelector("#player1Score");
     const player2Score = document.querySelector("#player2Score");
     const gameboard = Array.from(cell);
@@ -88,8 +94,12 @@ function playRound() {
 
                 // check for win 
                 if (getWin(currentPlayer.marker)) {
-                    console.log(`${currentPlayer.name} won the round!`);
 
+                    // display message
+                    // const winnerMessage = document.createElement("h2");
+                    // winnerMessageDiv.appendChild(winnerMessage);
+                    // winnerMessage.textContent = `${currentPlayer.name} won the round!`;
+                    
                     // display new scores
                     currentPlayer.score++;
                     currentPlayer === player1 ? 
@@ -113,18 +123,13 @@ function playRound() {
         });
     });
 
-    // Buttons
-    cell.forEach(cell => {
-        playBtn.addEventListener("click", () => {
-            stopGame = false;
-            cell.textContent = "";
-            currentPlayer = player1;
-        });
+    // Next Round button 
+    playBtn.addEventListener("click", () => {
+        stopGame = false;
+        currentPlayer = player1;
+        cell.forEach(c => c.textContent = "");
     });
 };
-
-playRound();
-
 
 // ADD:
 // DRAW CONDITION 
