@@ -10,4 +10,4 @@ A fun little Tic Tac Toe game!
 - Responsive styling that allow for play for mobile, laptops, and larger monitors!
   
 ### 🔎 Live Preview
-
+- https://kaito24mako.github.io/Tic-Tac-Toe/
