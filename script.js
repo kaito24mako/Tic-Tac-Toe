@@ -100,7 +100,7 @@ function playRound() {
                 const winCombo = getWin(currentPlayer.marker);
                 if (winCombo) {
 
-                    // change color of winning combo 
+                    // winning cells change in color 
                     winCombo.forEach(i => {
                         gameboard[i].style.backgroundColor = "lightgreen";
                         gameboard[i].style.transition = "background-color 0.5s";
@@ -134,7 +134,6 @@ function playRound() {
         stopGame = false;
         currentPlayer = player1;
         cell.forEach(c => c.textContent = "");
+        cell.forEach(c => c.style.backgroundColor = "");
     });
 };
-
-

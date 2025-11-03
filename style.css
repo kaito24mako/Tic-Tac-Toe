@@ -213,20 +213,20 @@ input {
     #title-container,
     #form-title {
         font-size: 2.5rem;
-    }
+    };
     .players-wrapper,
     #score-container {
         font-size: 0.9rem;
-    }
+    };
     input,
     button {
         font-size: 0.6rem;
-    }
+    };
     #gameboard-container {
         grid-template-columns: repeat(3, 100px);
         grid-template-rows: repeat(3, 100px);
-    }
+    };
     .cell {
         font-size: 3.5rem;
-    }
+    };
 }
