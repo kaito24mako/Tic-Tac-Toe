@@ -115,6 +115,7 @@ body {
 
     font-size: 1.3rem;
 
+    border: 1px solid rgba(0, 0, 0, 0.495);
     border-radius: 10px;
     background-color: rgba(28, 137, 227, 0.577);
 }
@@ -167,6 +168,7 @@ input {
     margin-top: 2rem;
     padding: 0.5rem 1rem;
 
+    border: 1px solid rgba(0, 0, 0, 0.495);
     border-radius: 10px;
     background-color: rgba(28, 137, 227, 0.577);
 }
