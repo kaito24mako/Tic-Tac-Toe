@@ -35,6 +35,23 @@
 
     <button id="nextRound"></button>
 
+    <dialog>
+        <form method="post" class="name-form">
+            <h1>Tic Tac Toe</h1>
+            <div class="player1">
+                <label for="player1">Player One Name</label>
+                <p>Marker: X</p>
+                <input type="text" id="player1" name="player1" required>
+            </div>
+            <div class="player2">
+                <label for="player2">Player Two Name</label>
+                <p>Marker: O</p>
+                <input type="text" id="player2" name="player2" required>
+            </div>
+            <button type="submit" id="submit-form">Confirm</button>
+        </form>
+    </dialog>
+
     <script src="./simplified.js" defer></script>
 </body>
 </html>

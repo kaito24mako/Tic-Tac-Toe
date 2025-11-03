@@ -11,14 +11,15 @@ function Player(name, marker, score) {
 const player1 = new Player("Kaito", "X", 0);
 const player2 = new Player("Bey", "O", 0);
 
-const player1Name = document.querySelector("#player1Name");
-const player2Name = document.querySelector("#player2Name");
+/* Show players on page load */
 
 function showPlayers() {
-
+    const player1Name = document.querySelector("#player1Name");
+    const player2Name = document.querySelector("#player2Name");
     player1Name.textContent = player1.name;
     player2Name.textContent = player2.name;
 };
+
 showPlayers();
 
 /* Round logic */
@@ -117,5 +118,5 @@ playRound();
 // ADD:
 // INPUT NAMES
 // DRAW CONDITION 
-
+// RESTART GAME BUTTON 
 
