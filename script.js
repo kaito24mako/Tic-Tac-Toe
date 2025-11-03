@@ -5,7 +5,7 @@ let player2;
 /* Create players */
 
 function getPlayerNames() {
-    const dialog = document.querySelector("dialog");
+    const formDialog = document.querySelector(".form-dialog-container");
     const form = document.querySelector("#form-container");
 
     const player1Name = document.querySelector("#player1Name");
@@ -34,7 +34,7 @@ function getPlayerNames() {
 
     // show form on load
     window.addEventListener("load", () => {
-        dialog.showModal();
+        formDialog.showModal();
     });
 
     // submit players and play game 
@@ -44,7 +44,7 @@ function getPlayerNames() {
         addPlayer1(player1NameInput.value, "X", 0);
         addPlayer2(player2NameInput.value, "O", 0);
 
-        dialog.close();
+        formDialog.close();
         playRound();
     });
 };
@@ -55,10 +55,10 @@ getPlayerNames();
 
 function playRound() {
     const cell = document.querySelectorAll(".cell");
-    const playBtn = document.querySelector("#playBtn");
-    const winnerMessageDiv = document.querySelector("#winnerMessage");
     const player1Score = document.querySelector("#player1Score");
     const player2Score = document.querySelector("#player2Score");
+    const playBtn = document.querySelector("#playBtn");
+    
     const gameboard = Array.from(cell);
     let currentPlayer = player1;
     let stopGame = false;
@@ -74,10 +74,14 @@ function playRound() {
             [0, 3, 6], [1, 4, 7], [2, 5, 8],  // columns
             [0, 4, 8], [2, 4, 6] // diagonals
         ];
-        // if any of these inner arrays have all the same marker, return true
-        return wins.some(combo => 
+
+        // find the first combo of inner arrays that has all matching markers
+        const winningCombo = wins.find(combo => 
             combo.every(i => gameboard[i].textContent === marker)
         );
+
+        // return winning array or null 
+        return winningCombo || null;
     };
 
     // Click handler
@@ -93,17 +97,19 @@ function playRound() {
                 cellTarget.textContent = currentPlayer.marker;
 
                 // check for win 
-                if (getWin(currentPlayer.marker)) {
+                const winCombo = getWin(currentPlayer.marker);
+                if (winCombo) {
 
-                    // display message
-                    // const winnerMessage = document.createElement("h2");
-                    // winnerMessageDiv.appendChild(winnerMessage);
-                    // winnerMessage.textContent = `${currentPlayer.name} won the round!`;
-                    
+                    // change color of winning combo 
+                    winCombo.forEach(i => {
+                        gameboard[i].style.backgroundColor = "lightgreen";
+                        gameboard[i].style.transition = "background-color 0.5s";
+                    });
+        
                     // display new scores
                     currentPlayer.score++;
-                    currentPlayer === player1 ? 
-                        player1Score.textContent = `${currentPlayer.score}`
+                    currentPlayer === player1 
+                        ? player1Score.textContent = `${currentPlayer.score}`
                         : player2Score.textContent = `${currentPlayer.score}`;
                     
                     // stop round 
@@ -131,7 +137,4 @@ function playRound() {
     });
 };
 
-// ADD:
-// DRAW CONDITION 
-// RESTART GAME BUTTON 
 
