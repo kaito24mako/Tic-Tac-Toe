@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
+    <header id="title-container">
+        <h1>Tic Tac Toe</h1>
+    </header>
 
-    <span id="scores">
-        <div class="player1-container">
+    <span id="score-container">
+        <div class="player1-group">
             <div id="player1Name"></div>
             <div id="player1Score"></div>
         </div>
         <p>vs</p>
-        <div class="player2-container">
+        <div class="player2-group">
             <div id="player2Name"></div>
             <div id="player2Score"></div>
         </div>
     </span>
 
-    <div id="gameboard">
+    <div id="gameboard-container">
         <div class="cell" id="one"></div>
         <div class="cell" id="two"></div>
         <div class="cell" id="three"></div>
@@ -33,22 +35,24 @@
         <div class="cell" id="nine"></div>
     </div>
 
-    <button id="nextRound"></button>
+    <button id="playBtn"></button>
 
     <dialog>
-        <form method="post" class="name-form">
-            <h1>Tic Tac Toe</h1>
-            <div class="player1">
-                <label for="player1">Player One Name</label>
-                <p>Marker: X</p>
-                <input type="text" id="player1" name="player1" required>
+        <form method="post" id="form-container">
+            <h1 id="form-title">Tic Tac Toe</h1>
+            <div class="players-wrapper">
+                <div class="player1-group">
+                    <label for="player1">Player One</label>
+                    <p>X</p>
+                    <input type="text" id="player1" name="player1" placeholder="name" required>
+                </div>
+                <div class="player2-group">
+                    <label for="player2">Player Two</label>
+                    <p>O</p>
+                    <input type="text" id="player2" name="player2" placeholder="name" required>
+                </div>
             </div>
-            <div class="player2">
-                <label for="player2">Player Two Name</label>
-                <p>Marker: O</p>
-                <input type="text" id="player2" name="player2" required>
-            </div>
-            <button type="submit" id="submit-form">Confirm</button>
+            <button type="submit" id="submitBtn">Confirm</button>
         </form>
     </dialog>
 

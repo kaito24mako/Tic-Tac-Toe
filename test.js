@@ -2,7 +2,7 @@
 
 function getPlayerNames() {
     const dialog = document.querySelector("dialog");
-    const form = document.querySelector(".name-form");
+    const form = document.querySelector("#form-container");
 
     const player1Name = document.querySelector("#player1Name");
     const player2Name = document.querySelector("#player2Name");
@@ -50,7 +50,7 @@ getPlayerNames();
 
 function playRound() {
     const cell = document.querySelectorAll(".cell");
-    const playBtn = document.querySelector("#nextRound");
+    const playBtn = document.querySelector("#playBtn");
     const player1Score = document.querySelector("#player1Score");
     const player2Score = document.querySelector("#player2Score");
     const gameboard = Array.from(cell);

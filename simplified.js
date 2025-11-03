@@ -56,7 +56,7 @@ showPlayers();
 
 function playRound() {
     const cell = document.querySelectorAll(".cell");
-    const playBtn = document.querySelector("#nextRound");
+    const playBtn = document.querySelector("#playBtn");
     const player1Score = document.querySelector("#player1Score");
     const player2Score = document.querySelector("#player2Score");
     const gameboard = Array.from(cell);
