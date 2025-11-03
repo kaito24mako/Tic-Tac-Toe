@@ -41,6 +41,13 @@ body {
     background-color: rgb(98, 176, 228);
 }
 
+.body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* ==== Header ==== */
 
 #title-container {
@@ -113,7 +120,7 @@ body {
 }
 
 #playBtn:hover {
-    background-color: rgba(28, 137, 227, 0.884);
+    background-color: rgba(18, 135, 231, 0.857);
 }
 
 /* ==== Name form ==== */
@@ -164,6 +171,10 @@ input {
     background-color: rgba(28, 137, 227, 0.577);
 }
 
+#submitBtn:hover {
+    background-color: rgba(18, 135, 231, 0.857);
+}
+
 dialog {
     position: fixed;
     top: 50%;
@@ -178,4 +189,15 @@ dialog {
 
 dialog::backdrop {
     background-color: rgb(98, 176, 228);
+}
+
+/* ==== MEDIA QUERIES ==== */
+
+@media (min-width: 2200px) {
+    .body {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+    }  
 }
