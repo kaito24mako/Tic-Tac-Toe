@@ -37,16 +37,17 @@ button {
 /* ==== General ==== */
 
 body {
-    background-color: rgb(168, 204, 228);
+    color: whitesmoke;
+    background-color: rgb(98, 176, 228);
 }
 
 /* ==== Header ==== */
 
 h1 {
     text-align: center;
-    margin: 0.5em;
+    margin: 10px;
 
-    font-size: 3rem;
+    font-size: 5.5rem;
 }
 
 /* ==== Gameboard ==== */
@@ -54,8 +55,8 @@ h1 {
 #gameboard {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(3, 200px);
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
 }
 
 .cell {
@@ -63,14 +64,14 @@ h1 {
     justify-content: center;
     align-items: center;
 
-    font-size: 2rem;
+    font-size: 9rem;
 
-    border: 2px solid black;
-    background-color: rgba(169, 119, 187, 0.164);
+    border: 4px solid whitesmoke;
+    background-color: rgba(103, 130, 152, 0.251);
 }
 
 .cell:hover {
-    background-color: rgba(169, 119, 187, 0.37);
+    background-color: rgba(26, 127, 209, 0.584);
 }
 
 /* ==== Score ==== */
@@ -79,12 +80,13 @@ h1 {
     display: flex;
     justify-content: center;
 
-    height: 60px;
+    height: 8rem;
 
     gap: 2rem;
-    margin-bottom: 1em;
+    margin-bottom: 10px;
 
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
 .player1-container,
@@ -106,10 +108,14 @@ h1 {
     font-size: 1.1rem;
 
     border-radius: 10px;
-    background-color: rgb(151, 197, 227);
+    background-color: rgba(28, 137, 227, 0.577);
+
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
 }
 
 #nextRound:hover {
-    background-color: rgb(133, 192, 231);
+    transform: rotate3d(1, 1, 0, 12deg);
+    background-color: rgba(28, 137, 227, 0.884);
 }
 

@@ -15,6 +15,7 @@ const player1Name = document.querySelector("#player1Name");
 const player2Name = document.querySelector("#player2Name");
 
 function showPlayers() {
+
     player1Name.textContent = player1.name;
     player2Name.textContent = player2.name;
 };
@@ -30,6 +31,10 @@ function playRound() {
     const gameboard = Array.from(cell);
     let currentPlayer = player1;
     let stopGame = true; 
+
+    // Show initial scores
+    player1Score.textContent = 0;
+    player2Score.textContent = 0;
 
     // Win condition 
     function getWin(marker) {
